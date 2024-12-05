@@ -9,11 +9,13 @@ class InformationNotFound(Exception):
         super().__init__(self.message)
 
 class windows:
-    keywords = ["CCMP", "GCMP", "WEP", "TKIP", "WPA3", "WPA2", "WPA"]
+    keywords = ["CCMP", "GCMP", "WEP", "TKIP", "WPA"]
     def main(self):
         profiles = self.Windows_get_wifi_profiles()
         for profile in profiles:
             password = self.Windows_get_wifi_password(profile)
+            if password is None:
+                continue
             print(f"Profile: {profile}\nPassword: {password}\n")
 
     def Windows_get_wifi_profiles(self):
