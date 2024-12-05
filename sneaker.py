@@ -1,6 +1,3 @@
-import re
-import subprocess
-import os
 import platform  # Add this import
 from Windows import windows
 
